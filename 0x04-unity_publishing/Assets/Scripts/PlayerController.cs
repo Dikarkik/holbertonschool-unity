@@ -17,10 +17,18 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Vector3 forceDirection;
     Vector3 rotationDirection;
+    public VariableJoystick variableJoystick; // Android imput
 
-    void Start() => rb = GetComponent<Rigidbody>();
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
 
-	void SetScoreText() => scoreText.text = $"Score: {score}";
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX
+        variableJoystick.gameObject.SetActive(false);
+#endif
+    }
+
+    void SetScoreText() => scoreText.text = $"Score: {score}";
 
 	void SetHealthText() => healthText.text = $"Health: {health}";
 
@@ -48,15 +56,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-            // movement
-            forceDirection.x = Input.GetAxis("Horizontal");
-            forceDirection.z = Input.GetAxis("Vertical");
-            rb.AddForce(forceDirection * speed * Time.deltaTime);
+        // input
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX
+        forceDirection.x = Input.GetAxis("Horizontal");
+        forceDirection.z = Input.GetAxis("Vertical");
+        rotationDirection.x = Input.GetAxis("Vertical");
+        rotationDirection.z = -Input.GetAxis("Horizontal");
+#endif
+#if UNITY_ANDROID
+        forceDirection.x = variableJoystick.Horizontal;
+        forceDirection.z = variableJoystick.Vertical;
+        rotationDirection.x = variableJoystick.Vertical;
+        rotationDirection.z = -variableJoystick.Horizontal;
+#endif
 
-            // rotation
-            rotationDirection.x = Input.GetAxis("Vertical");
-            rotationDirection.z = -Input.GetAxis("Horizontal");
-            transform.Rotate(rotationDirection * (speed * 3) * Time.deltaTime);
+        // movement and rotation
+        rb.AddForce(forceDirection * speed * Time.deltaTime);
+        transform.Rotate(rotationDirection * (speed * 3) * Time.deltaTime);
     }
 
 	void Update()
