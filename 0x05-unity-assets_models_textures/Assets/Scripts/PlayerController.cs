@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
 	void Update()
     {
         // movement
-        moveDirection.x = Input.GetAxis("Horizontal");
-        moveDirection.z = Input.GetAxis("Vertical");
+        moveDirection = Vector3.Normalize((Input.GetAxis("Vertical") * Camera.main.transform.forward) +
+                                          (Input.GetAxis("Horizontal") * Camera.main.transform.right));
 
         // jump
         if(!controller.isGrounded)
