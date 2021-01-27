@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     // movement
     private Vector3 moveDirection;
-    private float playerSpeed = 5f;
+    private float playerSpeed = 8f;
 
     // jump
     private Vector3 playerGravity;
@@ -39,5 +39,12 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime * playerSpeed);
 		// jump
 		controller.Move(playerGravity * Time.deltaTime);
+
+        // fall
+        if(transform.position.y < -20)
+        {
+            transform.position = new Vector3(0, 30, 0);
+            playerGravity.y = gravityValue;
+        }
     }
 }

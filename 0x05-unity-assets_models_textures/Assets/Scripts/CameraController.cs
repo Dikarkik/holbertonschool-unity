@@ -3,7 +3,7 @@
 public class CameraController : MonoBehaviour
 {
     public Transform target;
-    private Vector3 offset = new Vector3(0, 0, -6.25f);
+    private Vector3 offset = new Vector3(0, 1, -6.25f);
     private float turnSpeed = 5f;
 
     void Update()
