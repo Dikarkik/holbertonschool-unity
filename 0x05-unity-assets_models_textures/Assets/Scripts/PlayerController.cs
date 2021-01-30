@@ -9,12 +9,15 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
 
     // movement
+    private float playerSpeed = 7.5f;
     private Vector3 moveDirection;
-    private float playerSpeed = 8f;
+    private Vector3 cameraForward = new Vector3(0,0,0);
+    private Vector3 cameraRight = new Vector3(0, 0, 0);
+
 
     // jump
     private Vector3 playerGravity;
-    private float gravityValue = -9.81f;
+    private float gravityValue = -12.81f;
     private float jumpHeight = 1.0f;
 
 	void Start() => controller = GetComponent<CharacterController>();
@@ -22,8 +25,13 @@ public class PlayerController : MonoBehaviour
 	void Update()
     {
         // movement
-        moveDirection = Vector3.Normalize((Input.GetAxis("Vertical") * Camera.main.transform.forward) +
-                                          (Input.GetAxis("Horizontal") * Camera.main.transform.right));
+        cameraForward = Camera.main.transform.forward;
+        cameraRight = Camera.main.transform.right;
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+        moveDirection = Vector3.Normalize((Input.GetAxis("Vertical") * cameraForward) +
+                                          (Input.GetAxis("Horizontal") * cameraRight));
 
         // jump
         if(!controller.isGrounded)
