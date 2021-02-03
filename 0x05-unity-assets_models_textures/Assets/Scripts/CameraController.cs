@@ -15,8 +15,12 @@ public class CameraController : MonoBehaviour
 
     public bool CameraDisabled = false;
 
-	// Use this for initialization
-	void Start() => transform.SetParent(pivot, true);
+    // Use this for initialization
+    void Start()
+    {
+        Cursor.visible = false;
+        transform.SetParent(pivot, true);
+    }
 
 	void LateUpdate()
     {
