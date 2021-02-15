@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5157315286894508882
-    second: button-level03_0
+    second: button-level03
   - first:
       213: -3843923788717299226
     second: button-level03_1
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button-level03_0
+      name: button-level03
       rect:
         serializedVersion: 2
         x: 0
