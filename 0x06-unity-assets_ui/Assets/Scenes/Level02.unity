@@ -2539,7 +2539,7 @@ PrefabInstance:
     - target: {fileID: 3154259764066513184, guid: b9def7b1161e1e0459a1a7051395917c,
         type: 3}
       propertyPath: m_Name
-      value: 'WinCanvas '
+      value: WinCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 3154259764066513189, guid: b9def7b1161e1e0459a1a7051395917c,
         type: 3}
