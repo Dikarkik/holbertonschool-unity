@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // animations
     public Animator anim;
     private string runningAnim = "running";
-    private string finishJumpAnim = "finishJump";
+    private string playIdleAnim = "playIdle";
     
     void Start() => controller = GetComponent<CharacterController>();
 
@@ -47,12 +47,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(runningAnim, true);
         else
             anim.SetBool(runningAnim, false);
-
         
         // jump
-        if (controller.isGrounded && !anim.GetBool(finishJumpAnim))
+        if (controller.isGrounded && !anim.GetBool(playIdleAnim))
         {
-            anim.SetBool(finishJumpAnim, true);
+            anim.SetBool(playIdleAnim, true);
         }
         else if(!controller.isGrounded)
         {
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetButtonDown("Jump"))
 	    {
             playerGravity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            anim.SetBool(finishJumpAnim, false);
+            anim.SetBool(playIdleAnim, false);
             anim.SetTrigger("jumpTrigger");
         }
 
@@ -75,7 +74,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(0, 30, 0);
             playerGravity.y = gravityValue;
-            Debug.Log("fall");
         }
+    }
+
+    public void FallingAnim()
+    {
+        anim.SetBool(playIdleAnim, false);
+        anim.SetTrigger("falling");
     }
 }
