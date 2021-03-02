@@ -21,7 +21,12 @@ public class PlayerController : MonoBehaviour
 
     // model
     public Transform model;
-
+    
+    // animations
+    public Animator anim;
+    private string runningAnim = "running";
+    private string finishJumpAnim = "finishJump";
+    
     void Start() => controller = GetComponent<CharacterController>();
 
 	void Update()
@@ -38,15 +43,27 @@ public class PlayerController : MonoBehaviour
         //model rotation
         model.rotation = Quaternion.LookRotation(moveDirection);
         
+        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            anim.SetBool(runningAnim, true);
+        else
+            anim.SetBool(runningAnim, false);
+
+        
         // jump
-        if(!controller.isGrounded)
+        if (controller.isGrounded && !anim.GetBool(finishJumpAnim))
+        {
+            anim.SetBool(finishJumpAnim, true);
+        }
+        else if(!controller.isGrounded)
         {
             playerGravity.y += gravityValue * Time.deltaTime;
         }
         else if(Input.GetButtonDown("Jump"))
 	    {
             playerGravity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-		}
+            anim.SetBool(finishJumpAnim, false);
+            anim.SetTrigger("jumpTrigger");
+        }
 
         // movement (Unexpected behavior if place this line below 'jump' line)
         controller.Move(moveDirection * playerSpeed * Time.deltaTime);
@@ -58,6 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(0, 30, 0);
             playerGravity.y = gravityValue;
+            Debug.Log("fall");
         }
     }
 }

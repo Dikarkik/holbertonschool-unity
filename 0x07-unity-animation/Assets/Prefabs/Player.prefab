@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 115967421}
   - component: {fileID: 3982475875539120329}
   - component: {fileID: 6872608399855160670}
+  - component: {fileID: 7868699122452205587}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5497747259751864095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.712, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1898148099}
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
   model: {fileID: 6384858622081504384}
+  anim: {fileID: 7868699122452205587}
 --- !u!114 &6872608399855160670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
   finalTimeText: {fileID: 0}
+--- !u!95 &7868699122452205587
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497747259751864095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b3ef37a06e4718f4e91daa14010e233d, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2a1e04b25b692c1418d7ab005890b511, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6850303151031939947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,7 +263,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ty
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: b3ef37a06e4718f4e91daa14010e233d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b3ef37a06e4718f4e91daa14010e233d, type: 3}
 --- !u!4 &6384858622081504384 stripped
 Transform:
