@@ -6,11 +6,11 @@ public class WinTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.name == "Player")
-		{
-			other.GetComponent<Timer>().StopTimer();
-			winCanvas.SetActive(true);
-			FindObjectOfType<Timer>().Win();
-		}
+		if (other.name != "Player") return;
+		
+		var timer = other.GetComponent<Timer>();
+		timer.StopTimer();
+		winCanvas.SetActive(true);
+		timer.Win();
 	}
 }

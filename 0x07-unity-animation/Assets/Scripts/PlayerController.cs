@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraForward = new Vector3(0,0,0);
     private Vector3 cameraRight = new Vector3(0, 0, 0);
     public Camera mainCam;
-    
+
     // jump
     private Vector3 playerGravity;
     private float gravityValue = -12.81f;
@@ -37,11 +37,12 @@ public class PlayerController : MonoBehaviour
         cameraForward.y = 0;
         cameraRight.y = 0;
 
-        moveDirection = Vector3.Normalize((Input.GetAxis("Vertical") * cameraForward) +
-                                          (Input.GetAxis("Horizontal") * cameraRight));
-        
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("cantMove"))
+            moveDirection = Vector3.Normalize((Input.GetAxis("Vertical") * cameraForward) + (Input.GetAxis("Horizontal") * cameraRight));
+
         //model rotation
-        model.rotation = Quaternion.LookRotation(moveDirection);
+        if (moveDirection != Vector3.zero)
+            model.rotation = Quaternion.LookRotation(moveDirection);
         
         if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
             anim.SetBool(runningAnim, true);
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
         // fall
         if(transform.position.y < -20)
         {
+            moveDirection.x = 0;
+            moveDirection.z = 0;
             transform.position = new Vector3(0, 30, 0);
             playerGravity.y = gravityValue;
         }

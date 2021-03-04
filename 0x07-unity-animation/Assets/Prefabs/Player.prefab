@@ -192,13 +192,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Boy:Hips'\n\tTransform 'Boy:LeftArm'\n\tTransform
-    'Boy:RightHandRing1'\n\tTransform 'Boy:LeftHandRing2'\n\tTransform 'Boy:Head'\n\tTransform
-    'Boy:LeftHandPinky2'\n\tTransform 'Boy:RightHandIndex2'\n\tTransform 'Boy:RightArm'\n\tTransform
-    'Boy:LeftHandIndex3'\n\tTransform 'Boy:RightUpLeg'\n\tand more ...\n\tFrom animation
-    clip 'Falling'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -217,7 +211,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b3ef37a06e4718f4e91daa14010e233d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.03
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3ef37a06e4718f4e91daa14010e233d,
         type: 3}

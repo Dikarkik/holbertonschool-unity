@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TriggerToDetectFalling : MonoBehaviour
 {
@@ -8,9 +7,6 @@ public class TriggerToDetectFalling : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.CompareTag("Player"))
-        {
             playerControllerScript.FallingAnim();
-            Debug.Log("trigger falling");
-        }
     }
 }

@@ -43,6 +43,7 @@ public class Timer : MonoBehaviour
         finalTimeText.text = timerText.text;
         timerText.gameObject.SetActive(false);
         FindObjectOfType<CameraController>().CameraDisabled = true;
+        FindObjectOfType<PlayerController>().anim.SetTrigger("winIdle");
         FindObjectOfType<PlayerController>().enabled = false;
         Cursor.visible = true;
     }
