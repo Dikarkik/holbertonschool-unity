@@ -5785,6 +5785,24 @@ PrefabInstance:
       propertyPath: footsteps_running_rock
       value: 
       objectReference: {fileID: 8300000, guid: f3bf79e60e27b1f45bd236978a598643, type: 3}
+    - target: {fileID: 626475553, guid: da9c9b61da6515e4297ef0fcbd599f1d, type: 3}
+      propertyPath: footsteps_landing_grass
+      value: 
+      objectReference: {fileID: 8300000, guid: 9008b027cbb641c438c47b402c2f419a, type: 3}
+    - target: {fileID: 626475553, guid: da9c9b61da6515e4297ef0fcbd599f1d, type: 3}
+      propertyPath: footsteps_landing_rock
+      value: 
+      objectReference: {fileID: 8300000, guid: 28f4fca3df04e6b498ce1a10beba337f, type: 3}
+    - target: {fileID: 626475553, guid: da9c9b61da6515e4297ef0fcbd599f1d, type: 3}
+      propertyPath: am
+      value: 
+      objectReference: {fileID: 24100000, guid: 003f1c5ef6edcbb468040cad524746b9,
+        type: 2}
+    - target: {fileID: 626475553, guid: da9c9b61da6515e4297ef0fcbd599f1d, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 003f1c5ef6edcbb468040cad524746b9,
+        type: 2}
     - target: {fileID: 3982475875539120329, guid: da9c9b61da6515e4297ef0fcbd599f1d,
         type: 3}
       propertyPath: mainCam
