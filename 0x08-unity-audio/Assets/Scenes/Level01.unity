@@ -1519,6 +1519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 1938787354}
+  pauseAudio: {fileID: 1639131426}
 --- !u!4 &545068557
 Transform:
   m_ObjectHideFlags: 0
@@ -4852,9 +4853,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639131425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41438384729ed9448573ab1cef2dc53, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c06c36d0ad4314b9395cef1bc2a02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 003f1c5ef6edcbb468040cad524746b9, type: 2}
+  normal: {fileID: 24500006, guid: 003f1c5ef6edcbb468040cad524746b9, type: 2}
+  paused: {fileID: -7859555543553552842, guid: 003f1c5ef6edcbb468040cad524746b9, type: 2}
 --- !u!4 &1639131427
 Transform:
   m_ObjectHideFlags: 0

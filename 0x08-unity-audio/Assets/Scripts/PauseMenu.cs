@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseCanvas;
+    public PauseAudio pauseAudio;
 
 	private void Update()
 	{
@@ -21,16 +22,19 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         pauseCanvas.SetActive(true);
+        pauseAudio.Pause();
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
         pauseCanvas.SetActive(false);
+        pauseAudio.Normal();
     }
 
     public void Restart()
     {
+        pauseAudio.Normal();
         Resume();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
