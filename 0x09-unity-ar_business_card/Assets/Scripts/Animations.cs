@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Animations : MonoBehaviour
 {
-    [SerializeField] private DefaultTrackableEventHandler targetEventHandler;
+    [SerializeField] private TargetTrackableEventHandler targetEventHandler;
     [SerializeField] private RectTransform linkedInButton;
     [SerializeField] private RectTransform githubButton;
     [SerializeField] private RectTransform twitterButton;
