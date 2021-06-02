@@ -1,0 +1,15 @@
+{
+    "name": "EventNotifier",
+    "references": [
+        "GUID:cfea604475b7e9a4a8a1169ce3329349"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
