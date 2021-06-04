@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using DataSystem;
 using EventNotifier;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -13,8 +13,6 @@ namespace GameSystem
 
         public Material selectedPlane;
         
-        private bool _canClick = true; // Because UnityEngine.XR.ARFoundation.ARRaycastManager.Raycast doesn't handle LayerMask
-
         private ARPlane _selectedPlane;
     
         private MeshRenderer _meshRenderer;
@@ -23,7 +21,9 @@ namespace GameSystem
         
         private ARRaycastManager _raycastManager;
         
-        private static List<ARRaycastHit> _hits = new List<ARRaycastHit>();
+        private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
+
+        private Touch _touch;
 
         private void Awake()
         {
@@ -45,20 +45,33 @@ namespace GameSystem
 
         void Update()
         {
-            if (Input.touchCount == 0 || !_canClick)
-                return;
+            // Invalid touch
+            if (Input.touchCount == 0) return;
             
-            if (_raycastManager.Raycast(Input.GetTouch(0).position, _hits, TrackableType.Planes))
+            _touch = Input.GetTouch(0);
+            
+            if (_touch.phase != TouchPhase.Began || IsPointerOverUI(_touch)) return;
+            
+            // Touch Planes
+            if (_raycastManager.Raycast(_touch.position, _hits, TrackableType.Planes))
             {
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 OnPlaneSelection((ARPlane)_hits[0].trackable);
             }
         }
+        
+        private bool IsPointerOverUI(Touch touch)
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = new Vector2(touch.position.x, touch.position.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            return results.Count > 0;
+        }
 
         private void OnPlaneSelection(ARPlane plane)
         {
-            _canClick = false;
             _planeManager.enabled = false;
             
             _selectedPlane = plane;
@@ -70,14 +83,14 @@ namespace GameSystem
     
         private void OnConfirmPlaneSelection()
         {
-            GameData.SetPlane(_selectedPlane);
-                
             foreach (var plane in _planeManager.trackables)
             {
                 if (plane != _selectedPlane)
                     plane.gameObject.SetActive(false);
             }
-
+            
+            _selectedPlane.GetComponent<NavigationBaker>().BakeNavMesh(_selectedPlane.center);
+            
             this.enabled = false;
         }
 
@@ -85,11 +98,6 @@ namespace GameSystem
         {
             _meshRenderer.material = normalPlane;
             _planeManager.enabled = true;
-
-            // To avoid plane selections immediately after press "Cancel" button
-            Invoke(nameof(CanClick), 0.4f);
         }
-
-        private void CanClick() => _canClick = true;
     }
 }
