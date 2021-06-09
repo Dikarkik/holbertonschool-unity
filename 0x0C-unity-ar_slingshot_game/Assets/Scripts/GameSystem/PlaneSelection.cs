@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EventNotifier;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -25,11 +27,15 @@ namespace GameSystem
 
         private Touch _touch;
 
+        private bool _canClick = true;
+
         private void Awake()
         {
             _raycastManager = GetComponent<ARRaycastManager>();
             _planeManager = GetComponent<ARPlaneManager>();
         }
+
+        private void Start() => this.enabled = !Application.isEditor;
 
         private void OnEnable()
         {
@@ -46,11 +52,11 @@ namespace GameSystem
         void Update()
         {
             // Invalid touch
-            if (Input.touchCount == 0) return;
+            if (Input.touchCount == 0 || !_canClick) return;
             
             _touch = Input.GetTouch(0);
-            
-            if (_touch.phase != TouchPhase.Began || IsPointerOverUI(_touch)) return;
+        
+            if (IsPointerOverUI(_touch)) return;
             
             // Touch Planes
             if (_raycastManager.Raycast(_touch.position, _hits, TrackableType.Planes))
@@ -72,6 +78,7 @@ namespace GameSystem
 
         private void OnPlaneSelection(ARPlane plane)
         {
+            _canClick = false;
             _planeManager.enabled = false;
             
             _selectedPlane = plane;
@@ -88,8 +95,10 @@ namespace GameSystem
                 if (plane != _selectedPlane)
                     plane.gameObject.SetActive(false);
             }
-            
-            _selectedPlane.GetComponent<NavigationBaker>().BakeNavMesh(_selectedPlane.center);
+
+            GameManager.Plane = _selectedPlane;
+            _selectedPlane.GetComponent<NavMeshSurface>().BuildNavMesh();
+            StartingEvents.OnPrepareGameEvent();
             
             this.enabled = false;
         }
@@ -98,6 +107,9 @@ namespace GameSystem
         {
             _meshRenderer.material = normalPlane;
             _planeManager.enabled = true;
+            Invoke(nameof(EnableClick), 0.3f); 
         }
+
+        private void EnableClick() => _canClick = true;
     }
 }

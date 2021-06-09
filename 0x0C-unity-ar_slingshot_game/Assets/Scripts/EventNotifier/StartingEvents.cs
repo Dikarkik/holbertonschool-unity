@@ -12,7 +12,9 @@ namespace EventNotifier
 
         public static Action OnPrepareGame;
 
-        //public static Action OnStartGame;
+        public static Action OnStartGame;
+        
+        public static Action OnAmmoFired;
         
         public static void OnPlaneSelectionEvent() => OnPlaneSelection?.Invoke();
 
@@ -22,6 +24,6 @@ namespace EventNotifier
         
         public static void OnPrepareGameEvent() => OnPrepareGame?.Invoke();
 
-        //public static void OnStartGameEvent() => OnStartGame?.Invoke();
+        public static void OnStartGameEvent() => OnStartGame?.Invoke();
     }
 }

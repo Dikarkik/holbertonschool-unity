@@ -11,8 +11,8 @@ namespace UISystem
         
         private void Start()
         {
-            instructions.SetActive(true);
             confirmSelection.SetActive(false);
+            instructions.SetActive(!Application.isEditor);
         }
 
         private void OnEnable()
