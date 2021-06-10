@@ -1,4 +1,5 @@
-﻿using DataSystem;
+﻿using System.Collections.Generic;
+using DataSystem;
 using EventNotifier;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,8 +15,6 @@ namespace GameSystem
         
         public Transform planeInEditor;
 
-        public int targetToInstantiate = 5;
-        
         public GameObject targetPrefab;
 
         public GameObject ammo;
@@ -25,7 +24,7 @@ namespace GameSystem
         private void Awake()
         {
             ammo.SetActive(false);
-            _targets = new GameObject[targetToInstantiate];
+            _targets = new GameObject[data.targetsToInstantiate];
         }
 
         private void OnEnable()
@@ -35,7 +34,6 @@ namespace GameSystem
             GameEvents.OnStartGame += EnableAmmo;
             GameEvents.OnAmmoFired += AmmoFired;
             GameEvents.OnTargetDestroyed += TargetDestroyed;
-            GameEvents.OnFinishGame += CheckWinOrLose;
         }
 
         private void OnDisable()
@@ -45,7 +43,6 @@ namespace GameSystem
             GameEvents.OnStartGame -= EnableAmmo;
             GameEvents.OnAmmoFired -= AmmoFired;
             GameEvents.OnTargetDestroyed -= TargetDestroyed;
-            GameEvents.OnFinishGame -= CheckWinOrLose;
         }
 
         private void Start()
@@ -60,13 +57,12 @@ namespace GameSystem
                 planeInEditor.gameObject.SetActive(false);
         }
         
-        // Reset ammo count, score, targets
         private void ResetValues()
         {
-            data.ResetAmmoCount();
-            // Reset Score
+            data.ResetValues();
+            GameEvents.OnUpdateScoreEvent();
         }
-        
+
         private void InstantiateTargets()
         {
             // Delete previous targets
@@ -75,7 +71,7 @@ namespace GameSystem
             
             Vector3 pos = Plane != null ? Plane.center : planeInEditor.position;
             
-            for (int i = 0; i < targetToInstantiate; i++)
+            for (int i = 0; i < data.targetsToInstantiate; i++)
                 _targets[i] = Instantiate(targetPrefab, pos, Quaternion.identity);
         }
 
@@ -83,14 +79,14 @@ namespace GameSystem
 
         private void AmmoFired() => data.ammoCount--;
 
-        private void TargetDestroyed() => data.destroyedTargets++;
-
-        private void CheckWinOrLose()
+        private void TargetDestroyed()
         {
-            if (data.destroyedTargets == targetToInstantiate)
-                Debug.Log("win");
-            else
-                Debug.Log("Lose");
+            data.destroyedTargets++;
+            data.score += 10;
+            GameEvents.OnUpdateScoreEvent();
+            
+            if (data.destroyedTargets == data.targetsToInstantiate)
+                GameEvents.OnFinishGameEvent();
         }
     }
 }

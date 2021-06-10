@@ -17,6 +17,8 @@ namespace EventNotifier
         public static Action OnAmmoFired;
         
         public static Action OnTargetDestroyed;
+        
+        public static Action OnUpdateScore;
 
         public static Action OnFinishGame;
         
@@ -33,7 +35,8 @@ namespace EventNotifier
         public static void OnAmmoFiredEvent() => OnAmmoFired?.Invoke();
         
         public static void OnTargetDestroyedEvent() => OnTargetDestroyed?.Invoke();
-        
+        public static void OnUpdateScoreEvent() => OnUpdateScore?.Invoke();
+
         public static void OnFinishGameEvent() => OnFinishGame?.Invoke();
     }
 }

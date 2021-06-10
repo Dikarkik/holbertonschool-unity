@@ -1,6 +1,6 @@
-﻿using EventNotifier;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace UISystem
 {
@@ -8,8 +8,8 @@ namespace UISystem
     {
         public void OnPointerUp(PointerEventData eventData)
         {
-            GameEvents.OnPrepareGameEvent();
-            GameEvents.OnStartGame();
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
     }
 }
