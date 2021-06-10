@@ -39,14 +39,14 @@ namespace GameSystem
 
         private void OnEnable()
         {
-            StartingEvents.OnConfirmPlaneSelection += OnConfirmPlaneSelection;
-            StartingEvents.OnCancelPlaneSelection += OnCancelPlaneSelection;
+            GameEvents.OnConfirmPlaneSelection += OnConfirmPlaneSelection;
+            GameEvents.OnCancelPlaneSelection += OnCancelPlaneSelection;
         }
 
         private void OnDisable()
         {
-            StartingEvents.OnConfirmPlaneSelection -= OnConfirmPlaneSelection;
-            StartingEvents.OnCancelPlaneSelection -= OnCancelPlaneSelection;
+            GameEvents.OnConfirmPlaneSelection -= OnConfirmPlaneSelection;
+            GameEvents.OnCancelPlaneSelection -= OnCancelPlaneSelection;
         }
 
         void Update()
@@ -85,7 +85,7 @@ namespace GameSystem
             _meshRenderer = _selectedPlane.GetComponent<MeshRenderer>();
             _meshRenderer.material = selectedPlane;
             
-            StartingEvents.OnPlaneSelectionEvent();
+            GameEvents.OnPlaneSelectionEvent();
         }
     
         private void OnConfirmPlaneSelection()
@@ -98,7 +98,7 @@ namespace GameSystem
 
             GameManager.Plane = _selectedPlane;
             _selectedPlane.GetComponent<NavMeshSurface>().BuildNavMesh();
-            StartingEvents.OnPrepareGameEvent();
+            GameEvents.OnPrepareGameEvent();
             
             this.enabled = false;
         }

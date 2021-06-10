@@ -17,16 +17,16 @@ namespace UISystem
 
         private void OnEnable()
         {
-            StartingEvents.OnPlaneSelection += OnPlaneSelection;
-            StartingEvents.OnConfirmPlaneSelection += OnConfirmPlaneSelection;
-            StartingEvents.OnCancelPlaneSelection += OnCancelPlaneSelection;
+            GameEvents.OnPlaneSelection += OnPlaneSelection;
+            GameEvents.OnConfirmPlaneSelection += OnConfirmPlaneSelection;
+            GameEvents.OnCancelPlaneSelection += OnCancelPlaneSelection;
         }
         
         private void OnDisable()
         {
-            StartingEvents.OnPlaneSelection -= OnPlaneSelection;
-            StartingEvents.OnConfirmPlaneSelection -= OnConfirmPlaneSelection;
-            StartingEvents.OnCancelPlaneSelection -= OnCancelPlaneSelection;
+            GameEvents.OnPlaneSelection -= OnPlaneSelection;
+            GameEvents.OnConfirmPlaneSelection -= OnConfirmPlaneSelection;
+            GameEvents.OnCancelPlaneSelection -= OnCancelPlaneSelection;
         }
 
         private void OnPlaneSelection()

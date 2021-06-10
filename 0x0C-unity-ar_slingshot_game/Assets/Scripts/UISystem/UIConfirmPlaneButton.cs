@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 
 namespace UISystem
 {
-    public class UIConfirmPlaneButton : MonoBehaviour, IPointerDownHandler
+    public class UIConfirmPlaneButton : MonoBehaviour, IPointerUpHandler
     {
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnPointerUp(PointerEventData eventData)
         {
-            StartingEvents.OnConfirmPlaneSelectionEvent();
+            GameEvents.OnConfirmPlaneSelectionEvent();
         }
     }
 }

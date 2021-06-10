@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 
 namespace UISystem
 {
-    public class UIStartGameButton : MonoBehaviour, IPointerUpHandler
+    public class UIRestartButton : MonoBehaviour, IPointerUpHandler
     {
         public void OnPointerUp(PointerEventData eventData)
         {
-            GameEvents.OnStartGameEvent();
-            gameObject.SetActive(false);
+            GameEvents.OnPrepareGameEvent();
+            GameEvents.OnStartGame();
         }
     }
 }

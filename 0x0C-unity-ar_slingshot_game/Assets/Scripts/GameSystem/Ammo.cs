@@ -1,4 +1,6 @@
 ﻿using System;
+using DataSystem;
+using EventNotifier;
 using UnityEngine;
 
 namespace GameSystem
@@ -43,6 +45,12 @@ namespace GameSystem
 
         private void ResetAmmoPosition()
         {
+            if (GameData.GetAmmoCount() == 0)
+            {
+                GameEvents.OnFinishGameEvent();
+                gameObject.SetActive(false);
+            }
+            
             _rigidBody.useGravity = false;
             _rigidBody.velocity = Vector3.zero;
             _rigidBody.angularVelocity = Vector3.zero;
@@ -57,6 +65,7 @@ namespace GameSystem
             _rigidBody.useGravity = true;
             _force = Math.Abs(_startPos.y - _finalPos.y);
             _rigidBody.AddForce(0, _force * 10, _force * 10, ForceMode.Impulse);
+            GameEvents.OnAmmoFiredEvent();
         }
 
         private void Update()
@@ -67,10 +76,13 @@ namespace GameSystem
 
         private void OnCollisionEnter(Collision other)
         {
-            ResetAmmoPosition();
-            
             if (other.transform.CompareTag(TargetTag))
+            {
                 Destroy(other.gameObject);
+                GameEvents.OnTargetDestroyedEvent();
+            }
+
+            ResetAmmoPosition();
         }
 
         private void OnMouseDown() => _startPos = transform.position;

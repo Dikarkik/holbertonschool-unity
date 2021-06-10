@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9e348085-07bf-4a5b-b2d0-aa1a05487301" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ARSlingshotGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ARSlingshotGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataSystem/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataSystem/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataSystem/GameData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataSystem/GameData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventNotifier/StartingEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventNotifier/GameEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventNotifier/StartingEvents.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventNotifier/GameEvents.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystem/Ammo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystem/Ammo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystem/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystem/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystem/PlaneSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystem/PlaneSelection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UISystem/UICancelPlaneButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UISystem/UICancelPlaneButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIConfirmPlaneButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIConfirmPlaneButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIPlaneSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIPlaneSelection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIStartGameButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UISystem/UIStartGameButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIStartGameButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystem/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIAmmoCount.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIExitButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@4.1.1/Runtime/AR/ARPlaneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystem/TargetMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIPlaneSelection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48827A05-C015-4B4B-ADA3-2EAF5C10D8B0/a2/f9e61b5e/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIConfirmPlaneButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UICancelPlaneButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystem/Ammo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UISystem/UIRestartButton.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlaceOnPlane.cs" />
+      <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@4.1.1/Runtime/AR/ARPlaneManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlaneSelection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EventNotifier.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartingEvents.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/TryRaycast.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/NavigationBaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/InputManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/TestEvents.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/TestTargets.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/TestTargets.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/TargetMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/PlaneSelection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIStartGame.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIStartGameButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIPlaneSelection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EventNotifier/StartingEvents.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIExitButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIConfirmPlaneButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UICancelPlaneButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIRestartButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UISystem/UIAmmoCount.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataSystem/GameData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EventNotifier/GameEvents.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem/Ammo.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1tJRnbGRSgqO4TedaoHCVnA0ryL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e348085-07bf-4a5b-b2d0-aa1a05487301" name="Default Changelist" comment="" />
+      <created>1622485416215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622485416215</updated>
+      <workItem from="1622485442493" duration="1278000" />
+      <workItem from="1622497067085" duration="1909000" />
+      <workItem from="1622581742450" duration="10694000" />
+      <workItem from="1622651314836" duration="16164000" />
+      <workItem from="1622828196752" duration="6599000" />
+      <workItem from="1622839008878" duration="7861000" />
+      <workItem from="1622922105816" duration="8001000" />
+      <workItem from="1623025527141" duration="1274000" />
+      <workItem from="1623078643383" duration="15888000" />
+      <workItem from="1623165985655" duration="1212000" />
+      <workItem from="1623184668154" duration="8714000" />
+      <workItem from="1623196247579" duration="862000" />
+      <workItem from="1623255769844" duration="19452000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

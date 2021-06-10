@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 
 namespace UISystem
 {
-    public class UICancelPlaneButton : MonoBehaviour, IPointerDownHandler
+    public class UICancelPlaneButton : MonoBehaviour, IPointerUpHandler
     {
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnPointerUp(PointerEventData eventData)
         {
-            StartingEvents.OnCancelPlaneSelectionEvent();
+            GameEvents.OnCancelPlaneSelectionEvent();
         }
     }
 }

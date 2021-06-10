@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DataSystem;
 using EventNotifier;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,24 +12,38 @@ namespace GameSystem
         
         public Transform planeInEditor;
 
-        public int targets = 5;
+        public int targetToInstantiate = 5;
         
         public GameObject targetPrefab;
 
         public GameObject ammo;
 
-        private void Awake() => ammo.SetActive(false);
+        private GameObject[] _targets;
+
+        private void Awake()
+        {
+            ammo.SetActive(false);
+            _targets = new GameObject[targetToInstantiate];
+        }
 
         private void OnEnable()
         {
-            StartingEvents.OnPrepareGame += InstantiateTargets;
-            StartingEvents.OnStartGame += EnableAmmo;
+            GameEvents.OnPrepareGame += ResetValues;
+            GameEvents.OnPrepareGame += InstantiateTargets;
+            GameEvents.OnStartGame += EnableAmmo;
+            GameEvents.OnAmmoFired += AmmoFired;
+            GameEvents.OnTargetDestroyed += TargetDestroyed;
+            GameEvents.OnFinishGame += CheckWinOrLose;
         }
 
         private void OnDisable()
         {
-            StartingEvents.OnPrepareGame -= InstantiateTargets;
-            StartingEvents.OnStartGame -= EnableAmmo;
+            GameEvents.OnPrepareGame -= ResetValues;
+            GameEvents.OnPrepareGame -= InstantiateTargets;
+            GameEvents.OnStartGame -= EnableAmmo;
+            GameEvents.OnAmmoFired -= AmmoFired;
+            GameEvents.OnTargetDestroyed -= TargetDestroyed;
+            GameEvents.OnFinishGame -= CheckWinOrLose;
         }
 
         private void Start()
@@ -38,22 +52,43 @@ namespace GameSystem
             {
                 planeInEditor.gameObject.SetActive(true);
                 planeInEditor.GetComponent<NavMeshSurface>().BuildNavMesh();
-                StartingEvents.OnPrepareGameEvent();
+                GameEvents.OnPrepareGameEvent();
             }
             else
                 planeInEditor.gameObject.SetActive(false);
         }
-
+        
+        // Reset ammo count, score, targets
+        private void ResetValues()
+        {
+            GameData.ResetAmmoCount();
+            // Reset Score
+        }
+        
         private void InstantiateTargets()
         {
+            // Delete previous targets
+            for (int i = 0; i < _targets.Length; i++)
+                if (_targets[i] != null) Destroy(_targets[i]);
+            
             Vector3 pos = Plane != null ? Plane.center : planeInEditor.position;
-
-            for (int i = 0; i < targets; i++)
-            {
-                Instantiate(targetPrefab, pos, Quaternion.identity);
-            }
+            
+            for (int i = 0; i < targetToInstantiate; i++)
+                _targets[i] = Instantiate(targetPrefab, pos, Quaternion.identity);
         }
 
         private void EnableAmmo() => ammo.SetActive(true);
+
+        private void AmmoFired() => GameData.DecreaseAmmo();
+
+        private void TargetDestroyed() => GameData.TargetDestroyed();
+
+        private void CheckWinOrLose()
+        {
+            if (GameData.GetDestroyedTargets() == targetToInstantiate)
+                Debug.Log("win");
+            else
+                Debug.Log("Lose");
+        }
     }
 }
