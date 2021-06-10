@@ -6,6 +6,8 @@ namespace UISystem
 {
     public class UIAmmoCount : MonoBehaviour
     {
+        public GameData data;
+
         public GameObject[] ammoImages;
 
         private void OnEnable()
@@ -28,7 +30,7 @@ namespace UISystem
         
         private void UpdateAmmoCount()
         {
-            var index = GameData.GetAmmoCount() > 0 ? GameData.GetAmmoCount() : 0;
+            var index = data.ammoCount > 0 ? data.ammoCount : 0;
             ammoImages[index].SetActive(false);
         }
     }

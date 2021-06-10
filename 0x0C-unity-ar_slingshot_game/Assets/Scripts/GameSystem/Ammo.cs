@@ -7,6 +7,8 @@ namespace GameSystem
 {
     public class Ammo : MonoBehaviour
     {
+        public GameData data;
+        
         public Camera cam;
 
         public Transform camTransform;
@@ -45,7 +47,7 @@ namespace GameSystem
 
         private void ResetAmmoPosition()
         {
-            if (GameData.GetAmmoCount() == 0)
+            if (data.ammoCount == 0)
             {
                 GameEvents.OnFinishGameEvent();
                 gameObject.SetActive(false);

@@ -941,6 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15d0a52b77d1394ba8de179ba294a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 49bb991e58157f84da7f18f663f2cb50, type: 2}
   ammoImages:
   - {fileID: 535727363}
   - {fileID: 2052861456}
@@ -1565,6 +1566,12 @@ PrefabInstance:
       propertyPath: camTransform
       value: 
       objectReference: {fileID: 5952608}
+    - target: {fileID: -1080816447034325336, guid: 10b862a39dd102242aa9a50aafadcf63,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 49bb991e58157f84da7f18f663f2cb50,
+        type: 2}
     - target: {fileID: 64083028600892408, guid: 10b862a39dd102242aa9a50aafadcf63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2247,6 +2254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2206a18f42bf1e43b82b56f386004e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 49bb991e58157f84da7f18f663f2cb50, type: 2}
   planeInEditor: {fileID: 1474029079}
   targetToInstantiate: 5
   targetPrefab: {fileID: 2285281490396523277, guid: 4f2195ccd602ade48b28271eeb62ff7a,

@@ -8,6 +8,8 @@ namespace GameSystem
 {
     public class GameManager : MonoBehaviour
     {
+        public GameData data;
+        
         public static ARPlane Plane;
         
         public Transform planeInEditor;
@@ -61,7 +63,7 @@ namespace GameSystem
         // Reset ammo count, score, targets
         private void ResetValues()
         {
-            GameData.ResetAmmoCount();
+            data.ResetAmmoCount();
             // Reset Score
         }
         
@@ -79,13 +81,13 @@ namespace GameSystem
 
         private void EnableAmmo() => ammo.SetActive(true);
 
-        private void AmmoFired() => GameData.DecreaseAmmo();
+        private void AmmoFired() => data.ammoCount--;
 
-        private void TargetDestroyed() => GameData.TargetDestroyed();
+        private void TargetDestroyed() => data.destroyedTargets++;
 
         private void CheckWinOrLose()
         {
-            if (GameData.GetDestroyedTargets() == targetToInstantiate)
+            if (data.destroyedTargets == targetToInstantiate)
                 Debug.Log("win");
             else
                 Debug.Log("Lose");
