@@ -56,9 +56,9 @@ namespace GameSystem
             _rigidBody.useGravity = false;
             _rigidBody.velocity = Vector3.zero;
             _rigidBody.angularVelocity = Vector3.zero;
-            _transform.rotation = Quaternion.identity;
             _transform.SetParent(camTransform);
-            _transform.transform.localPosition = _defaultPosition;
+            _transform.localRotation = Quaternion.identity;
+            _transform.localPosition = _defaultPosition;
         }
         
         private void Shoot()
@@ -66,7 +66,7 @@ namespace GameSystem
             _transform.SetParent(null);
             _rigidBody.useGravity = true;
             _force = Math.Abs(_startPos.y - _finalPos.y);
-            _rigidBody.AddForce(0, _force * 10, _force * 10, ForceMode.Impulse);
+            _rigidBody.AddRelativeForce(0, _force * 10, _force * 10, ForceMode.Impulse);
             GameEvents.OnAmmoFiredEvent();
         }
 
@@ -87,23 +87,27 @@ namespace GameSystem
             ResetAmmoPosition();
         }
 
-        private void OnMouseDown() => _startPos = transform.position;
+        private void OnMouseDown()
+        {
+            _startPos = transform.localPosition;
+        }
 
         private void OnMouseUp()
         {
-            _finalPos = transform.position;
+            _finalPos = transform.localPosition;
             Shoot();
         }
 
         private void OnMouseDrag()
         {
             _ray = cam.ScreenPointToRay(Input.mousePosition);
+            var direction = transform.InverseTransformDirection(_ray.direction);
 
-            _currentPos.y = _ray.direction.y > _startPos.y ? _startPos.y : _ray.direction.y ;
+            _currentPos.y = direction.y > _startPos.y ? _startPos.y : direction.y ;
             _currentPos.z = _currentPos.y + 1.1f;
-            _currentPos.x = _ray.direction.x;
-
-            transform.position = Vector3.Lerp(transform.position, _currentPos, Time.deltaTime * 300);
+            _currentPos.x = direction.x;
+            
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _currentPos, Time.deltaTime * 300);
         }
     }
 }

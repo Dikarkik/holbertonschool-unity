@@ -12,7 +12,7 @@ namespace UISystem
         
         private void Start()
         {
-            startGameButton.SetActive(Application.isEditor);
+            startGameButton.SetActive(false);
             playAgainButton.SetActive(false);
             gamePanel.SetActive(false);
             score.SetActive(false);
@@ -20,15 +20,16 @@ namespace UISystem
 
         private void OnEnable()
         {
+            GameEvents.OnPrepareGame += DisplayStartGameButton; // will be unsubscribed after first time
             GameEvents.OnStartGame += DisplayGamePanel;
             GameEvents.OnFinishGame += DisplayPlayAgainButton;
         }
         
         private void OnDisable()
         {
+            GameEvents.OnPrepareGame -= DisplayStartGameButton;
             GameEvents.OnStartGame -= DisplayGamePanel;
             GameEvents.OnFinishGame -= DisplayPlayAgainButton;
-
         }
 
         private void DisplayGamePanel()
@@ -38,5 +39,11 @@ namespace UISystem
         }
         
         private void DisplayPlayAgainButton() => playAgainButton.SetActive(true);
+        
+        private void DisplayStartGameButton()
+        {
+            GameEvents.OnPrepareGame -= DisplayStartGameButton;
+            startGameButton.SetActive(true);
+        }
     }
 }

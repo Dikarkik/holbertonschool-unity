@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using DataSystem;
+﻿using DataSystem;
 using EventNotifier;
 using UnityEngine;
 using UnityEngine.AI;
