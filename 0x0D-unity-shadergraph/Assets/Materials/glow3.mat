@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlowEffect_Sphere3
+  m_Name: glow3
   m_Shader: {fileID: -6465566751694194690, guid: 1d0c819e7a8c4dd4b935e17e360363fa,
     type: 3}
   m_ShaderKeywords: 
