@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: glow
-  m_Shader: {fileID: -6465566751694194690, guid: 1d0c819e7a8c4dd4b935e17e360363fa,
+  m_Name: glow_animated3
+  m_Shader: {fileID: -6465566751694194690, guid: 96ba2638ff2023c4aa7d30fbda0e1676,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -62,7 +62,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4A8E06A2: 7.41
+    - Vector1_2148E88D: 1.5
+    - Vector1_4A8E06A2: 6.33
+    - Vector1_658F7D7C: 4
+    - Vector1_B9888469: 11
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -85,8 +88,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_6048FB2E: {r: 0.5990566, g: 1, b: 0.6032549, a: 0}
-    - Color_6CAB9D5A: {r: 0.7311321, g: 1, b: 0.7709643, a: 0}
+    - Color_6048FB2E: {r: 1, g: 0.4292453, b: 0.74707735, a: 0}
+    - Color_6CAB9D5A: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
